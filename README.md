@@ -40,5 +40,5 @@ You're done! :)
 - ✅ Allow teammates to use this code
 - ✅ Check if single address token is now multi address token and deprecate
 - Cleanup comments & JSDocs 
-- Logic for checking the TLD array
+- Logic for checking the TLD array & mappings
 - Automate the running of this package & Send an email / notification when changes are detected
