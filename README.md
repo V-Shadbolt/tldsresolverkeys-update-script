@@ -21,10 +21,10 @@
  2. Update the readme changelog with any changes showed in jsonMetaData.json
  3. Update readme variable definitions (use https://codebeautify.org/remove-extra-spaces to clean up the array(s))
  4. Update the package.json file with the new version number
-  <x.x.x>
- Iterating the first digit should only occur if there is a change to the structure of the package's variables
- Iterating the second digit should occur either when a TLD is added or removed
- Iterating the third digit should occur either when a new token is added or removed
+ - <x.x.x>
+ - Iterating the first digit should only occur if there is a change to the structure of the package's variables
+ - Iterating the second digit should occur either when a TLD is added or removed
+ - Iterating the third digit should occur either when a new token is added or removed
  5. Run `git add .`
  6. Run `git commit -m "ADD YOUR COMMIT MESSAGE"`
  7. Run `git push`
