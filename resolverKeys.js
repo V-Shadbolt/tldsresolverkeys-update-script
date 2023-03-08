@@ -47,16 +47,20 @@ function writeJsonToFile (jsonObject) {
  * @param {Array} newSingleList - array containing the single address tokens pulled via API
  * @param {Array} oldMultiList - array containing the current multi address tokens
  * @param {Array} newMultiList - array containing the multi address tokens pulled via API
+ * @param {Array} oldTldList - array containing the current tld list
+ * @param {Array} newTldList - array containing the tld list pulled via API
  * @returns {Object} changelog - an object containing a needs to update flag as well as any of the changes detected
  */
-function checkSavedJson (oldSingleList, newSingleList, oldMultiList, newMultiList){
+function checkSavedJson (oldSingleList, newSingleList, oldMultiList, newMultiList, oldTldList, newTldList){
     let changelog = {"Need to Update": false};
     let singleDiff = tokenListDifference(oldSingleList, newSingleList);
     let multiDiff = tokenListDifference(oldMultiList, newMultiList);
-    if (multiDiff["Removed"].length > 0 || singleDiff["Removed"].length > 0 || multiDiff["Added"].length > 0 || singleDiff["Added"].length > 0) {
+    let tldDiff = tokenListDifference(oldTldList, newTldList);
+    if (multiDiff["Removed"].length > 0 || singleDiff["Removed"].length > 0 || tldDiff["Removed"].length > 0 || multiDiff["Added"].length > 0 || singleDiff["Added"].length > 0 || tldDiff["Added"].length > 0) {
         changelog["Need to Update"] = true;
         changelog["Single Differences"] = singleDiff;
         changelog["Multi Differences"] = multiDiff;
+        changelog["TLD Differences"] = tldDiff;
     }
 
     return changelog;
@@ -141,7 +145,7 @@ async function mainExecutable (){
     let sortedApiTokens = sortResolverKeys(Object.keys(apiResults.resolverKeyApiResult.keys));
     setTokenData(sortedApiTokens);
     // compares current vs new for changes - writes to file if there are chanegs detected
-    let checkedJson = checkSavedJson(currentMetaData.udResolverKeys.singleAddressList, sortedApiTokens.single, currentMetaData.udResolverKeys.multiAddressList, sortedApiTokens.multi)
+    let checkedJson = checkSavedJson(currentMetaData.udResolverKeys.singleAddressList, sortedApiTokens.single, currentMetaData.udResolverKeys.multiAddressList, sortedApiTokens.multi, currentMetaData.udTlds, apiResults.tldApiResult.tlds)
     if (checkedJson["Need to Update"] === true) {
         jsonData.responseMetaData.latest_changes = checkedJson
         writeJsonToFile(jsonData)

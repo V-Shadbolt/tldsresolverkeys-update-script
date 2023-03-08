@@ -10,7 +10,8 @@
 		"x",
 		"klever",
 		"zil",
-		"hi"
+		"hi",
+		"kresus"
 	],
 	"udResolverKeys": {
 		"singleAddressList": [
@@ -621,22 +622,21 @@
 		"latest_changes": {
 			"Need to Update": true,
 			"Single Differences": {
-				"Removed": [
-					"FET"
-				],
-				"Added": [
-					"POKT",
-					"KAI",
-					"XLA",
-					"APT"
-				]
+				"Removed": [],
+				"Added": []
 			},
 			"Multi Differences": {
 				"Removed": [],
 				"Added": []
+			},
+			"TLD Differences": {
+				"Removed": [],
+				"Added": [
+					"kresus"
+				]
 			}
 		},
-		"number_of_tlds": 11,
+		"number_of_tlds": 12,
 		"number_of_single_address_tokens": 242,
 		"number_of_multi_address_tokens": 62
 	}
