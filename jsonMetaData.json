@@ -11,7 +11,8 @@
 		"klever",
 		"zil",
 		"hi",
-		"kresus"
+		"kresus",
+		"polygon"
 	],
 	"udResolverKeys": {
 		"singleAddressList": [
@@ -320,7 +321,8 @@
 			"DOG",
 			"GALA",
 			"0ZK",
-			"SWEAT"
+			"SWEAT",
+			"HI"
 		],
 		"multiAddressMapping": {
 			"B2M": [
@@ -615,6 +617,10 @@
 			"SWEAT": [
 				"ERC20",
 				"NEP-141"
+			],
+			"HI": [
+				"ERC20",
+				"BEP20"
 			]
 		}
 	},
@@ -627,17 +633,19 @@
 			},
 			"Multi Differences": {
 				"Removed": [],
-				"Added": []
+				"Added": [
+					"HI"
+				]
 			},
 			"TLD Differences": {
 				"Removed": [],
 				"Added": [
-					"kresus"
+					"polygon"
 				]
 			}
 		},
-		"number_of_tlds": 12,
+		"number_of_tlds": 13,
 		"number_of_single_address_tokens": 242,
-		"number_of_multi_address_tokens": 62
+		"number_of_multi_address_tokens": 63
 	}
 }
